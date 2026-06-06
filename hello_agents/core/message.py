@@ -23,6 +23,10 @@ class Message(BaseModel):
         "extra": "forbid",   # 禁止传入未声明的字段
         "str_strip_whitespace": True,  # 自动去除 content 首尾空白（可选）
     }
+
+    # 加一个 __init__ 兼容位置参数
+    def __init__(self, content: str = "", role: str = "user", **kwargs):
+        super().__init__(content=content, role=role, **kwargs)
     
     def to_dict(self) -> Dict[str, Any]:
         """转换为 OpenAI API 所需的字典（仅包含 role 和 content）"""
