@@ -79,7 +79,7 @@ class PerceptualMemory(BaseMemory):
 
         # 嵌入维度（与统一文本嵌入保持一致）
         self.text_embedder = get_text_embedder()
-        self.vector_dim = get_dimension(getattr(self.text_embedder, 'dimension', 384))
+        self.vector_dim = get_dimension(getattr(self.text_embedder, 'dimension', 2560))
 
         # 可选加载：图像CLIP与音频CLAP（缺依赖则优雅降级为哈希编码）
         self._clip_model = None

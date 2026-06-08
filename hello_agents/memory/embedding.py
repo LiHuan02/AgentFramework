@@ -297,7 +297,7 @@ def get_text_embedder() -> EmbeddingModel:
         return _embedder
 
 
-def get_dimension(default: int = 384) -> int:
+def get_dimension(default: int = 2560) -> int:
     """获取统一向量维度（失败回退默认值）"""
     try:
         return int(getattr(get_text_embedder(), "dimension", default))

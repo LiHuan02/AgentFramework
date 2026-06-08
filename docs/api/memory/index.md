@@ -1018,7 +1018,7 @@ print(episodic.get_stats())
 存储抽象知识与概念关系，使用“向量+图”混合检索：
 
 **特点：**
-- 向量检索：Qdrant 向量数据库（多语言嵌入，默认 384 维）
+- 向量检索：Qdrant 向量数据库（多语言嵌入，默2560 维）
 - 图检索：Neo4j 知识图谱（spaCy 实体识别入图，仅保留共现关系）
 - 融合排序：graph×0.6 + vector×0.4 + importance×0.05（无正则与启发式加分）
 - 多语言支持：优先 `paraphrase-multilingual-MiniLM-L12-v2`，自动降级

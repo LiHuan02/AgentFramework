@@ -457,7 +457,7 @@ def _create_default_vector_store(dimension: int = None) -> QdrantVectorStore:
     使用连接管理器避免重复连接。
     """
     if dimension is None:
-        dimension = get_dimension(384)
+        dimension = get_dimension(2560)
     
     # Check for Qdrant configuration
     qdrant_url = os.getenv("QDRANT_URL")
@@ -494,7 +494,7 @@ def index_chunks(
     
     # Use unified embedding from embedding module
     embedder = get_text_embedder()
-    dimension = get_dimension(384)
+    dimension = get_dimension(2560)
     
     # Create default Qdrant store if not provided
     if store is None:
@@ -637,7 +637,7 @@ def embed_query(query: str) -> List[float]:
     Embed query using unified embedding (百炼 with fallback).
     """
     embedder = get_text_embedder()
-    dimension = get_dimension(384)
+    dimension = get_dimension(2560)
     try:
         vec = embedder.encode(query)
         
@@ -1139,7 +1139,7 @@ def create_rag_pipeline(
     Returns:
         Dict containing store, namespace, and helper functions
     """
-    dimension = get_dimension(384)
+    dimension = get_dimension(2560)
     
     store = QdrantVectorStore(
         url=qdrant_url,
